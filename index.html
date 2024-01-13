@@ -4,7 +4,7 @@
  <meta charset='UTF-8'>
  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
- <link rel='stylesheet' href='./style.css'>
+ <link rel='stylesheet' href='css/style.css'>
  <title>音楽プレイヤー</title>
 </head>
 <body>
@@ -13,8 +13,7 @@
  <button id="loadFileButton">ファイルを開く</button>
  <input type="file" id="fileInput" style="display: none;" onchange="handleFiles(this.files)">
  <button id="loopButton">ループ</button>
- <div id="dropArea" ondrop="handleDrop(event)" ondragover="event.preventDefault()" ondragenter="showDropIndicator(true)" ondragleave="showDropIndicator(false)">ここにドラッグ＆ドロップ</div>
  </div>
- <script src='./app.js'></script>
+ <script src='app.js'></script>
 </body>
 </html>
