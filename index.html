@@ -4,46 +4,17 @@
  <meta charset='UTF-8'>
  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-<link rel="stylesheet" href="css/style.css">
-      <link rel="manifest" href="manifest.json">
+ <link rel='stylesheet' href='css/style.css'>
  <title>音楽プレイヤー</title>
 </head>
 <body>
  <div class="player">
  <audio id="song" controls></audio>
  <button id="loadFileButton">ファイルを開く</button>
- <input type="file" id="fileInput" style="display: none;">
+ <input type="file" id="fileInput" style="display: none;" onchange="handleFiles(this.files)">
  <button id="loopButton">ループ</button>
+ <div id="dropArea" ondrop="handleDrop(event)" ondragover="event.preventDefault()">ここにファイルをドラッグ＆ドロップ</div>
  </div>
  <script src='app.js'></script>
-    <script>
-    if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service_worker.js').then(function(registration) {
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-    }).catch(function(err) {
-        console.log('ServiceWorker registration failed: ', err);
-    });
-    }
-    </script>
- <div id="dropContainer" style="border:1px solid black;height:100px;">
-  Drop Here
-</div>
-ここにファイルをドロップ
-<input type="file" id="fileInput" />
-
-<script>
-var dropContainer = document.getElementById('dropContainer');
-
-dropContainer.ondragover = dropContainer.ondragenter = function(evt) {
- evt.preventDefault();
-};
-
-dropContainer.ondrop = function(evt) {
- var fileInput = document.getElementById('fileInput');
- fileInput.files = evt.dataTransfer.files;
- evt.preventDefault();
-};
-</script>
-
 </body>
 </html>
