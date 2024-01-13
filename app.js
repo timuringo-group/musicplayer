@@ -2,15 +2,23 @@ let song = document.getElementById('song');
 let loadFileButton = document.getElementById('loadFileButton');
 let fileInput = document.getElementById('fileInput');
 let loopButton = document.getElementById('loopButton');
+let dropArea = document.getElementById('dropArea');
 
 loadFileButton.addEventListener('click', function() {
  fileInput.click();
 });
 
-fileInput.addEventListener('change', function() {
- let file = fileInput.files[0];
+fileInput.addEventListener('change', handleFiles);
+
+function handleFiles(files) {
+ let file = files[0];
  let url = URL.createObjectURL(file);
  song.src = url;
+}
+
+dropArea.addEventListener('drop', function(event) {
+ event.preventDefault();
+ handleFiles(event.dataTransfer.files);
 });
 
 loopButton.addEventListener('click', function() {
