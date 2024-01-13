@@ -25,3 +25,7 @@ loopButton.addEventListener('click', function() {
  song.loop = !song.loop;
  loopButton.textContent = song.loop ? 'ループ解除' : 'ループ';
 });
+
+function showDropIndicator(isShow) {
+ dropArea.style.backgroundColor = isShow ? '#ddd' : '';
+}
