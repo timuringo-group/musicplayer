@@ -25,5 +25,25 @@
     });
     }
     </script>
+ <div id="dropContainer" style="border:1px solid black;height:100px;">
+  Drop Here
+</div>
+ここにファイルをドロップ
+<input type="file" id="fileInput" />
+
+<script>
+var dropContainer = document.getElementById('dropContainer');
+
+dropContainer.ondragover = dropContainer.ondragenter = function(evt) {
+ evt.preventDefault();
+};
+
+dropContainer.ondrop = function(evt) {
+ var fileInput = document.getElementById('fileInput');
+ fileInput.files = evt.dataTransfer.files;
+ evt.preventDefault();
+};
+</script>
+
 </body>
 </html>
